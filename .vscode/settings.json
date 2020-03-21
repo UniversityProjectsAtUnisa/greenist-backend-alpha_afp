@@ -1,6 +1,0 @@
-{
-    "python.pythonPath": "flask/bin/python3.7",
-    "code-runner.executorMap": { 
-        "python": "./flask/bin/python -u" 
-    }
-}
