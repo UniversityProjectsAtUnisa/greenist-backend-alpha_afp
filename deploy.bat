@@ -1,0 +1,1 @@
+ssh -t pi@greenist.ddns.net -p 2022 "cd Greenist_backend; git fetch --all; git reset --hard origin/master; sudo systemctl restart flask.service"
