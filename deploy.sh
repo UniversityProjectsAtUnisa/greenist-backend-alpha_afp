@@ -1,1 +1,1 @@
-ssh -t pi@192.168.1.149 'cd Greenist_backend; git fetch --all; git reset --hard origin/master; bash start.sh;'
+ssh -t pi@192.168.1.149 'cd Greenist_backend; git fetch --all; git reset --hard origin/master; sudo systemctl restart flask.service'
