@@ -1,7 +1,7 @@
 """Flask config class."""
 import os
 from dotenv import load_dotenv
-dotenv_path = os.path.join(os.getenv('HOME'), '.env')  # Path to .env file
+dotenv_path = os.path.realpath('.env')  # Path to .env file
 load_dotenv(dotenv_path)
 
 
