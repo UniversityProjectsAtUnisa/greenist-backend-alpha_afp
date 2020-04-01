@@ -1,26 +1,26 @@
-from flask import Flask, request
-import config
-from src.fibonacci import fibonacci
+from src.views import app
+from src.models import db
+from config import DB_URL
 
-
-app = Flask(__name__)
-
-app.config.from_object('config.DevConfig')
-
-
-@app.route("/", methods=["GET"])
-def hello():
-    return "Hello World!"
-
-
-@app.route("/fibonacci", methods=["GET"])
-def fib():
-    n = request.args.get("n")
-    print(n)
-    if n.isdigit():
-        return str(fibonacci(int(n)))
-    return "0"
-
+db.init_app(app)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
+
+
+# cli commands
+@app.cli.command('resetdb')
+def resetdb_command():
+    """Destroys and creates the database + tables."""
+
+    from sqlalchemy_utils import database_exists, create_database, drop_database
+    if database_exists(DB_URL):
+        print('Deleting database.')
+        drop_database(DB_URL)
+    if not database_exists(DB_URL):
+        print('Creating database.')
+        create_database(DB_URL)
+
+    print('Creating tables.')
+    db.create_all()
+    print('ResetDB completed')
