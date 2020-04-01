@@ -2,7 +2,7 @@
 import os
 from common.utils import get_env_variable
 from dotenv import load_dotenv
-dotenv_path = os.path.realpath('.env')  # Path to .env file
+dotenv_path = os.path.join(os.path.dirname(__file__),'.env')  # Path to .env file
 load_dotenv(dotenv_path)
 
 # Postgress global configs
