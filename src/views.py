@@ -10,12 +10,12 @@ def create_app():
 app = create_app()
 
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def hello():
     return "Hello World!"
 
 
-@app.route("/fibonacci", methods=["GET"])
+@app.route("/fibonacci")
 def fib():
     n = request.args.get("n")
     print(n)
