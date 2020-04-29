@@ -15,10 +15,8 @@ def hello():
     return "Hello World!"
 
 
-@app.route("/fibonacci")
-def fib():
-    n = request.args.get("n")
-    print(n)
+@app.route("/fibonacci/<string:n>")
+def fib(n):
     if n.isdigit():
         return str(fibonacci(int(n)))
     return "0"
