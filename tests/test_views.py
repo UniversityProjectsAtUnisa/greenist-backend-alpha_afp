@@ -1,8 +1,8 @@
-from src import views
+from src.views import hello, fib
 
 
 def test_hello():
-    assert views.hello() == "Hello World!"
+    assert hello() == "Hello World!"
     
 def test_fib():
-    assert views.fib("4") == "5"
+    assert fib("4") == "5"
